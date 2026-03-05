@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "../../App.css";
 
 function DurationExercise({ name }) {
   const [time, setTime] = useState(0);
@@ -16,7 +17,6 @@ function DurationExercise({ name }) {
     return () => clearInterval(timer);
   }, [start, time]);
 
-  //time format
   let minutes = Math.floor(time / 60);
   let seconds = time % 60;
 
@@ -29,27 +29,36 @@ function DurationExercise({ name }) {
   }
 
   return (
-    <div style={{ textAlign: "center" }}>
+    <div className="container">
       <h1>{name}</h1>
 
-      <h2>{minutes}:{seconds}</h2>
+      <div className="display-box">
+        {minutes}:{seconds}
+      </div>
 
-      <button onClick={() => setStart(true)}>
+      <button
+        className="button green"
+        onClick={() => setStart(true)}
+      >
         Start
       </button>
 
-      <br /><br />
-
-      <button onClick={() => setStart(false)}>
+      <button
+        className="button red"
+        onClick={() => setStart(false)}
+      >
         Stop
       </button>
 
-      <br /><br />
+      <br />
 
-      <button onClick={() => {
-        setStart(false);
-        setTime(0);
-      }}>
+      <button
+        className="button yellow"
+        onClick={() => {
+          setStart(false);
+          setTime(0);
+        }}
+      >
         Reset
       </button>
     </div>

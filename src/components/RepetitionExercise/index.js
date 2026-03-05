@@ -1,21 +1,28 @@
 import React, { useState } from "react";
+import "../../App.css";
 
 function RepetitionExercise({ name }) {
   const [count, setCount] = useState(0);
 
   return (
-    <div style={{ textAlign: "center" }}>
+    <div className="container">
       <h1>{name}</h1>
 
-      <h2>{count}</h2>
+      <div className="display-box">{count}</div>
 
-      <button onClick={() => setCount(count + 1)}>
-        Add Rep
+      <button
+        className="button green"
+        onClick={() => setCount(count + 1)}
+      >
+        +1 Rep
       </button>
 
-      <br /><br />
+      <br />
 
-      <button onClick={() => setCount(0)}>
+      <button
+        className="button yellow"
+        onClick={() => setCount(0)}
+      >
         Reset
       </button>
     </div>

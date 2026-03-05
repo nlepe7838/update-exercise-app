@@ -1,26 +1,33 @@
 import React, { useState } from "react";
+import "../../App.css";
 
 function GoalExercise({ name }) {
   const [count, setCount] = useState(0);
   const goal = 20;
 
   return (
-    <div style={{ textAlign: "center" }}>
+    <div className="container">
       <h1>{name}</h1>
 
-      <h2>{count} / {goal}</h2>
+      <div className="display-box">
+        {count} / {goal}
+      </div>
 
-      <button onClick={() => setCount(count + 1)}>
+      <button
+        className="button green"
+        onClick={() => setCount(count + 1)}
+      >
         +1
       </button>
 
-      <br /><br />
+      <br />
 
-      <button onClick={() => setCount(0)}>
+      <button
+        className="button yellow"
+        onClick={() => setCount(0)}
+      >
         Reset
       </button>
-
-      <br /><br />
 
       {count >= goal && <p>Goal Reached!</p>}
     </div>
